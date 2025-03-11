@@ -7,58 +7,105 @@
 </head>
 <body>
     <form action="">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname">
+        <table>
+        <tr>
+            <td>
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname">
+            </td>
+        </tr>
         <br>
-        <label for="lname">Last name:</label><br>
+        <tr>
+            <td>
+                <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname">
+            </td>
+        </tr>
         <br/>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="">
+        <tr>
+            <td>
+                <label for="email">Email</label>
+        <input type="email" name="email" id=""> 
+            </td>
+        </tr>
         <br/>
-        <label for="id">Id</label>
-        <input type="number" name="Id" id="">
+        <tr>
+            <td><label for="id">Id</label>
+                <input type="number" name="Id" id="">  
+            </td>
+        </tr>
         <br/>
-        <label for="pass">Password</label>
-        <input type="password" name="password" value="44277">
+        <tr>
+            <td>
+                <label for="pass">Password</label>
+                <input type="password" name="password" value="44277">
+            </td>
+        </tr>
         <br/>
-        <p>Gender</p>
-        <label>Male</label>        
-        <input type="radio" value="Male">
-        <label>Female</label>
-        <input type="radio" value="Female">
-        <label>Others</label>
-        <input type="radio" value="Others">
+        <tr>
+            <td>
+                <p>Gender</p>
+                <label>Male</label>        
+                <input type="radio" value="Male">
+                <label>Female</label>
+                <input type="radio" value="Female">
+                <label>Others</label>
+                <input type="radio" value="Others">
+            </td>
+        </tr>
         <br/>
-        <p for="skills">skills</p>
-        <label>ReactJs<label>
-        <input type="checkbox" name="reactJs" id="" >
-        <label>NextJs</label>
-        <input type="checkbox" name="nextJs" id="" >
-        <label>HonoJs</label>
-        <input type="checkbox" name="honoJs" id="" >
+        <tr>
+            <td>
+                <p for="skills">skills</p>
+        <label>C++<label>
+        <input type="checkbox" name="C++" id="" >
+        <label>Java</label>
+        <input type="checkbox" name="Java" id="" >
+        <label>C#</label>
+        <input type="checkbox" name="C#" id="" >
+            </td>
+        </tr>
         <br/>
-        <p>Address</p>
-        <textarea id="add" name="Address" rows="4" cols="50">
-        Kuratoli, Dhaka, Bangladesh   
-        </textarea>
+        <tr>
+            <td>
+                <p>Address</p>
+                <textarea id="add" name="Address" rows="4" cols="50">
+                Kuratoli, Kuril, Bangladesh   
+                </textarea>
+            </td>
+        </tr>
         <br/>
-        <label for="">Department</label>
-        <select name="dept" id="">
-            <option value="">CSE</option>
-            <option value="">BBA</option>
-        </select>
+        <tr>
+            <td>
+                <label for="">Department</label>
+                <select name="dept" id="">
+                    <option value="">CSE</option>
+                    <option value="">BBA</option>
+                </select>
+            </td>
+        </tr>
         <br/>
-        <label for="dob">Date of Birth</label>
-        <input type="datetime-local" name="dob" id="">
-
+        <tr>
+            <td>
+                <label for="dob">Date of Birth</label>
+                <input type="datetime-local" name="dob" id="">  
+            </td>
+        </tr>
         <br/>
-        <label for="img">Image</label>
-        <input type="file" name="img" id="">
+        <tr>
+            <td>
+                <label for="img">Image</label>
+                <input type="file" name="img" id=""> 
+            </td>
+        </tr>
         <br/>
-
-        <button type="submit">Submit</button>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
         <button type="reset">Reset</button>
+            </td>
+        </tr>
+    </table>
     </form>
 </body>
 </html>
