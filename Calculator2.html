@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Only Calculator</title>
+</head>
+<body>
+    <script>
+    const calculator = document.createElement('div');
+    calculator.style.width = '280px';
+    calculator.style.margin = '100px auto';
+    calculator.style.padding = '15px';
+    calculator.style.border = '2px solid #000';
+    calculator.style.borderRadius = '10px';
+    calculator.style.textAlign = 'center';
+    calculator.style.background = '#f3f3f3';
+    calculator.style.boxShadow = '2px 2px 10px rgba(0,0,0,0.2)';
+
+    const display = document.createElement('input');
+    display.type = 'text';
+    display.readOnly = true;
+    display.style.width = '90%';
+    display.style.height = '40px';
+    display.style.fontSize = '20px';
+    display.style.marginBottom = '10px';
+    display.style.textAlign = 'right';
+    display.style.borderRadius = '5px';
+    display.style.border = '1px solid #ccc';
+    calculator.appendChild(display);
+
+    const buttons = [
+    'C', '&', 'DEL', '/',
+    '7', '8', '9', '*',
+    '4', '5', '6', '-',
+    '1', '2', '3', '+',
+    '0', '.', '='
+    ];
+
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.display = 'grid';
+    buttonContainer.style.gridTemplateColumns = 'repeat(4, 60px)';
+    buttonContainer.style.gap = '10px';
+    buttonContainer.style.justifyContent = 'center';
+
+    buttons.forEach(text => {
+        const btn = document.createElement('button');
+        btn.textContent = text;
+        btn.style.cursor = 'pointer';
+        btn.style.borderRadius = '6px';
+        btn.style.border = '1px solid #ccc';
+        btn.style.height = '50px';
+        btn.style.fontSize = '18px';
+
+        btn.style.background = '#e0e0e0';
+
+        if (text === '=') {
+            btn.style.background = '#4CAF50';
+            btn.style.color = 'white';
+            btn.style.fontSize = '22px';
+            btn.style.gridColumn = 'span 2'; 
+        } else if (text === 'C') {
+            btn.style.background = '#f44336';
+            btn.style.color = 'white';
+        } else if (['+', '-', '*', '/', '%'].includes(text)) {
+            btn.style.background = '#2196F3';
+            btn.style.color = 'white';
+        }
+
+        btn.onclick = () => handleClick(text);
+        buttonContainer.appendChild(btn);
+    });
+
+    calculator.appendChild(buttonContainer);
+    document.body.appendChild(calculator);
+
+    let currentInput = '';
+    let resultDisplayed = false;
+
+    function handleClick(value) {
+        if (value === 'C') {
+            currentInput = '';
+            display.value = '';
+            return;
+        }
+
+        if (value === 'DEL') {
+            currentInput = currentInput.slice(0, -1); 
+            display.value = currentInput;
+            return;
+        }
+
+        if (value === '=') {
+            try {
+            currentInput = currentInput.replace(/%/g, '/100');
+            const result = eval(currentInput);
+            display.value = result;
+            currentInput = result.toString();
+            resultDisplayed = true;
+            } catch (e) {
+            display.value = 'Error';
+            currentInput = '';
+            }
+            return;
+        }
+
+        if (resultDisplayed && !isNaN(value)) {
+            currentInput = value;
+            display.value = currentInput;
+            resultDisplayed = false;
+            return;
+        }
+
+        currentInput += value;
+        display.value = currentInput;
+        }
+
+    </script>
+</body>
+</html>
